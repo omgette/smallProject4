@@ -43,8 +43,8 @@ Reference: Kaggle. (2021). Flower Recognition Dataset [Dataset]. Retrieved from 
 # How to Run Project
 ## Prereqs
 - Python 3.x
-- Apache Spark installed on all VMs (/opt/spark)
-- PySpark, NumPy, Pandas, Matplotlib, Seaborn
+- Apache Spark installed on all VMs
+- PySpark, NumPy, Pandas
 
 # Team Members
 - Olivia Gette
