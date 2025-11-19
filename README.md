@@ -17,12 +17,23 @@ Ultimately, the goal is to show how Spark-based CNNs can be applied to real-worl
 
 ## Model Approaches
 ### train_cnn.py script
-- Uses a simple CNN with two convolutional layers and fully connected classifier.
-- Trains on resized and normalized images (128x128).
+- Implements a simple CNN with two convolutional layers and a fully connected classifier.
+- Trains on resized and normalized images (128x128) with an 80/20 train-test split.
 - Evaluates accuracy on a held-out test set.
-- Saves trained model as flower_cnn.pth.
+- Model saved as flower_cnn.pth.
+
+## Model Improvements
+- Script 2: Added dropout (0.5) and data augmentation (flip, rotation, color jitter) to reduce overfitting. Slightly deeper classifier.
+- Script 3: Added a third convolutional layer and batch normalization, increased classifier size. Trained for more epochs to improve underfitting.
+- Script 4: Added a fourth convolutional layer, adaptive pooling, learning rate scheduler, and weight decay; applied controlled augmentation, resulting in the best test accuracy (77.5%).
 
 # Results
+| Script | CNN Layers | Key Changes / Features | Test Accuracy |
+|--------|------------|----------------------|---------------|
+| 1      | 2          | Simple CNN, no dropout, no augmentation | 65.36% |
+| 2      | 2          | Added dropout (0.5), data augmentation, normalization, slightly deeper classifier | 70.12% |
+| 3      | 3          | Added batch normalization, third conv layer, larger classifier, more epochs | 74.30% |
+| 4      | 4          | Added fourth conv layer, adaptive pooling, weight decay, learning rate scheduler, controlled augmentation | 77.50% |
 
 # Distributed Cluster Setup
 To handle the dataset’s scale, the project was deployed on two virtual machines (VMs):
@@ -34,11 +45,6 @@ I found a dataset on Kaggle with 4242 images of flowers. It contains 5 classes o
 Source: [Flower Recognition]([url](https://www.kaggle.com/datasets/alxmamaev/flowers-recognition?select=flowers))
 
 Reference: Kaggle. (2021). Flower Recognition Dataset [Dataset]. Retrieved from https://www.kaggle.com/datasets/alxmamaev/flowers-recognition?select=flowers. 
-
-# Methods Summary
-## Preprocessing
-
-## Modeling
 
 # How to Run Project
 ## Prereqs
